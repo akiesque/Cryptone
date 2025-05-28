@@ -4,6 +4,7 @@ import time
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import pandas as pd
 from datetime import datetime
+your_auth_token = ""
 
 # Initialize analyzer
 sia = SentimentIntensityAnalyzer()
@@ -19,7 +20,7 @@ def to_emoji(score):
     
 # Function to fetch and score news
 def get_sentiment(symbol):
-    url = f"https://cryptopanic.com/api/v1/posts/?auth_token=271127c49ba9b8e3ab8792729dc01b28225f2006&public=true&kind=news&currencies={symbol}&filter=(bullish|bearish|important|saved|lol)"
+    url = f"https://cryptopanic.com/api/v1/posts/?auth_token={your_auth_token}"
     response = requests.get(url)
     data = response.json()
 
