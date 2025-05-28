@@ -2,11 +2,12 @@ from binance.client import Client
 from datetime import datetime
 import pandas as pd
 import time
+import streamlit as st
 
 # Set up the Binance client with your API Key and Secret
-api_key = 'RqjwPkWHP6C5jfxrU4dPP6pjbTHeZOp1ICuhH8MgQDvTrky4jWgoTFyJ0zjWIZSI'
-api_secret = 'ZgjsuMviGySm0yGmGehdsrDEMySBWlZQuR5fGM26azs3djV91bQlQGONTunp08r5'
-client = Client(api_key, api_secret)
+API_KEY = st.secrets["BINANCE_API_KEY"]
+API_SECRET = st.secrets["BINANCE_API_SECRET"]
+client = Client(API_KEY, API_SECRET)
 
 # Function to fetch historical data for XRP on a specific date
 def get_xrp_price_on_date(date_str):
